@@ -70,7 +70,7 @@ pip install -r requirements.txt
 - Install the latest PyTorch version (at time of writing: 1.7.1) by following the instructions [here](https://pytorch.org/). If you want to train your own model you need to download the CUDA version of PyTorch (and have a GPU + CUDA installed).
 
 ### Download model weights
-You can either [train your own model](#train-model) or download our pretrained model weights that we used in our papers. To use our pretrained model weights go to [here](weights)
+You can either [train your own model](#train-model) or download our pretrained model weights that we used in our papers. To download and use our pretrained model weights go to [here](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/releases/download/Brainage-release-v0.01/v0.01.zip)
 
 ## Usage
 ### Single case
