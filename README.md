@@ -133,7 +133,7 @@ If you use this tool in your research, please cite:
 
 ## License
 
-The code in this project is licensed under the MIT License - see [LICENSE.md](LICENSE.md) for details.
+The code in this project is licensed under the MIT License - see [LICENSE.md](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/blob/main/LICENSE) for details.
 
 Please note that this tool relies on third-party software with other licesenses:
 - FSL - see [FSL license](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence) for details.
