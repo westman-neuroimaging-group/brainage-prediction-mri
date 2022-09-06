@@ -1,0 +1,8 @@
+uid,age_at_scan,partition,path
+some_unique_id_for_img1,64,train,/absolute/path/to/img1.nii
+some_unique_id_for_img2,49,train,/absolute/path/to/img2.nii.gz
+some_unique_id_for_img3,57,train,/absolute/path/to/img3.nii
+some_unique_id_for_img4,56,dev,/absolute/path/to/img4.nii
+some_unique_id_for_img5,61,dev,/absolute/path/to/img5.nii.gz
+some_unique_id_for_img6,58,test,/absolute/path/to/img6.nii.gz
+some_unique_id_for_img7,63,test,/absolute/path/to/img7.nii

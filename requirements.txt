@@ -1,0 +1,10 @@
+numpy
+pandas
+matplotlib
+argparse
+nibabel
+h5py
+nipype
+scikit-image
+tensorboard
+sklearn
