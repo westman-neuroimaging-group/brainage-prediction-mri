@@ -4,7 +4,7 @@
 *brainage-prediction-mri* is a tool that takes an unprocessed T1-weighted brain MRI(in .nii or .nii.gz format) and automatically predicts the age of the subject. The model was trained on more than 15000 images from healthy individuals.
 
 The methods in this repository is described in:
-> TBA
+> https://www.medrxiv.org/content/10.1101/2022.09.06.22279594v1 
 
 The network architecture is a 3D version of ResNet [He et al. (2017)](https://arxiv.org/abs/1512.03385).
 
@@ -129,7 +129,9 @@ and the run `python2.7 fslinstaller.py`.
 
 ## Citation
 If you use this tool in your research, please cite:
-> TBA
+> Predicting the Age of the Brain with Minimally Processed T1-weighted MRI Data
+Caroline Dartora, Anna Marseglia, Gustav Mårtensson, Gull Rukh, Junhua Dang, J-Sebastian Muehlboeck, Lars-Olof Wahlund, Rodrigo Moreno, José Barroso, Daniel Ferreira, Helgi B. Schiöth, Eric Westman, the Alzheimer’s Disease Neuroimaging Initiative, the Australian Imaging Biomarkers and Lifestyle flagship study of ageing, the Japanese Alzheimer’s Disease Neuroimaging Initiative, the AddNeuroMed consortium
+medRxiv 2022.09.06.22279594; doi: https://doi.org/10.1101/2022.09.06.22279594
 
 ## License
 
