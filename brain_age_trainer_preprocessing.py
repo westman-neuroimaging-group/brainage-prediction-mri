@@ -9,9 +9,8 @@ This script uses FSL to do a rigid registration (6 DOF) to the MNI brain, so FSL
 The input-csv file should have a column `path` with the full path to each image.
 The output-csv file will have an additional column `path_registered`, which includes paths to the registered images located in output-dir.
 
-
-@author: gustav
-@edited: caroline
+@author: GM
+@edited: CD
 """
 
 import pandas as pd
@@ -22,7 +21,7 @@ import argparse
 parser = argparse.ArgumentParser(description='Perform rigid registration to MNI brain of a dataset')
 parser.add_argument('--input-csv', default='../brain_age/data/sample_short.csv', help='Path to csv file with paths to img files')
 parser.add_argument('--output-csv', default='', help='Path to output csv file')
-parser.add_argument('--output-dir', default='/media/datadisk/gustav/data/test', help='Path to output csv file')
+parser.add_argument('--output-dir', default='/path/to/output_file', help='Path to output csv file')
 args = parser.parse_args()
 
 
@@ -35,8 +34,6 @@ if not args.output_csv:
     
 df = pd.read_csv(args.input_csv)
 
-#df = df.query('partition=="train" | partition=="dev" | partition=="test"')
-#df = df.query('age_at_scan>87')
 
 print('Starting registration. May take up to 1min/image.')
 #% Running registrations in parallel

@@ -4,7 +4,7 @@
 *brainage-prediction-mri* is a tool that takes an unprocessed T1-weighted brain MRI(in .nii or .nii.gz format) and automatically predicts the age of the subject. The model was trained on more than 15000 images from healthy individuals.
 
 The methods in this repository is described in:
-> https://www.medrxiv.org/content/10.1101/2022.09.06.22279594v1 
+> TBA
 
 The network architecture is a 3D version of ResNet [He et al. (2017)](https://arxiv.org/abs/1512.03385).
 
@@ -53,7 +53,7 @@ See below for installation instructions.
 - Open a terminal and cd to the folder where you wish to install the tool and clone repository:
 ``` 
 cd /path/to/your/installation/folder 
-git clone https://github.com/westman-neuroimaging-group/brainage-prediction-mri.git
+git clone https://carolinedartora@bitbucket.org/ericwestman/brainage-prediction-mri.git
 ``` 
 
 or press "Clone or Download" in the top right corner and unzip the repository in your folder of choice.
@@ -70,7 +70,7 @@ pip install -r requirements.txt
 - Install the latest PyTorch version (at time of writing: 1.7.1) by following the instructions [here](https://pytorch.org/). If you want to train your own model you need to download the CUDA version of PyTorch (and have a GPU + CUDA installed).
 
 ### Download model weights
-You can either [train your own model](#train-model) or download our pretrained model weights that we used in our papers. To use our pretrained model weights click [here](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/releases/download/Brainage-release-v0.01/v0.01.zip).
+You can either [train your own model](#train-model) or download our pretrained model weights that we used in our papers. To use our pretrained model weights go to [here](weights)
 
 ## Usage
 ### Single case
@@ -125,17 +125,15 @@ conda activate py2
 ```
 and the run `python2.7 fslinstaller.py`.
 
-- Please report any problems with running the tool [here](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/issues).
+- Please report any problems with running the tool on https://bitbucket.org/ericwestman/brainage-prediction-mri/
 
 ## Citation
 If you use this tool in your research, please cite:
-> Predicting the Age of the Brain with Minimally Processed T1-weighted MRI Data
-Caroline Dartora, Anna Marseglia, Gustav Mårtensson, Gull Rukh, Junhua Dang, J-Sebastian Muehlboeck, Lars-Olof Wahlund, Rodrigo Moreno, José Barroso, Daniel Ferreira, Helgi B. Schiöth, Eric Westman, the Alzheimer’s Disease Neuroimaging Initiative, the Australian Imaging Biomarkers and Lifestyle flagship study of ageing, the Japanese Alzheimer’s Disease Neuroimaging Initiative, the AddNeuroMed consortium
-medRxiv 2022.09.06.22279594; doi: https://doi.org/10.1101/2022.09.06.22279594
+> TBA
 
 ## License
 
-The code in this project is licensed under the MIT License - see [LICENSE.md](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/blob/main/LICENSE) for details.
+The code in this project is licensed under the MIT License - see [LICENSE.md](LICENSE.md) for details.
 
 Please note that this tool relies on third-party software with other licesenses:
 - FSL - see [FSL license](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence) for details.
@@ -143,4 +141,4 @@ Please note that this tool relies on third-party software with other licesenses:
 - nibabel - see [license](http://nipy.org/nibabel/legal.html) for details.
 
 ## Contact
-caroline.dartora@ki.se / westman.neuroimaging@gmail.com
+caroline.dartora@ki.se

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-@author: gustav
-@edited: caroline
+@author: GM
+@edited: CD
 """
 import numpy as np 
 import pandas as pd
@@ -20,14 +20,16 @@ class StoreOutput(object):
         self.pred = []
         self.label = []
         self.uid= [] 
+        self.guid= []
         self.df= [] 
+
     
     def get_df(self):
         # return dataframe with predictions
-        self.df = pd.DataFrame({'age_at_scan':self.label,'predicted_age':self.pred,'uid':self.uid})
+        self.df = pd.DataFrame({'age_at_scan':self.label,'predicted_age':self.pred,'uid':self.uid,'guid':self.guid})
         return self.df
-    
-    def update(self, new_pred, new_labels, new_uids=None):
+ 
+    def update(self, new_pred, new_labels, new_uids=None, new_guids=None):
         # update object with new labels and predictions
         new_pred=new_pred.detach().to('cpu').numpy()
         new_labels=new_labels.detach().to('cpu').numpy()
@@ -36,6 +38,8 @@ class StoreOutput(object):
         self.label = np.concatenate((self.label,new_labels))
         if new_uids is not None:
             self.uid= np.concatenate((self.uid,new_uids))
+        if new_guids is not None:
+            self.guid= np.concatenate((self.guid,new_guids))
 
     def mse(self,j=None):
         # get mean squared error of predictions

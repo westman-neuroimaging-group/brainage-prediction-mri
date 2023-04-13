@@ -1,6 +1,6 @@
 """
-@author: Gustav Martensson 2021
-@edited: Caroline Dartora 2022
+@author: GM
+@edited: CD
 
 Age prediction of brain images convolutional neural networks. The script briefly:
     1. Takes a single unprocessed T1-weighted native MRI image in .nii.gz or .nii format.
@@ -33,12 +33,12 @@ from transforms.load_transform import load_transforms
 
 
 parser = argparse.ArgumentParser(description='Brain age prediction from unprocessed T1-weighted nifti images')
-parser.add_argument('--model-dir', type=str,default='/path/to/model/weigth/', help='Path to directory containing the folders trained network weights')
-parser.add_argument('--input-file', default='/path/to/images/img.nii.gz', help='Absoulute path to the input MRI file in (file assumed to be in .nii or .nii.gz format)')
+parser.add_argument('--model-dir', type=str,default='/path/to/the/path/with/trained/model/weights', help='Path to directory containing the folders trained network weights')
+parser.add_argument('--input-file', default='/path/to/your/input/nifti/registered/file/my_registered_nifti.nii.gz', help='Absoulute path to the input MRI file in (file assumed to be in .nii or .nii.gz format)')
 parser.add_argument('--output-dir', default='/path/to/brain_age/output_dir', help='Path to directory where all output files. Directory will be created if it doesn\'t exist')
 parser.add_argument('--uid', default='', type=str,help='Chosen unique id for output files that will located at output-dir/{uid_mni_dof_6.nii,uid.csv,uid_coronal.jpg}')
-parser.add_argument('--no-new-registration', dest='registration', action='store_false',help='If a previous AC/PC-alignment exists (file output_folder/uid_mni_dof_6.nii) then setting this flag will use previous registration. If there is no previious transform, the transform will be performed anyway.')
-parser.set_defaults(registration=False) # TODO: change to True
+parser.add_argument('--no-new-registration', dest='registration', action='store_false',help='If a previous AC/PC-alignment exists (file output_folder/uid_mni_dof_6.nii) then setting this flag will use previous registration. If there is no previous transform, the transform will be performed anyway.')
+parser.set_defaults(registration=True) 
 args = parser.parse_args()
 
 print('---- Started age prediction ----')

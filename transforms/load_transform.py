@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-@author: gustav
-@edited: caroline
+@author: GM
+@edited: CD
 """
 import transforms.transforms as tfs
 def load_transforms(args,random_chance=1):

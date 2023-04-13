@@ -1,16 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-@author: gustav
-@edited: caroline
-"""
-
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jun  2 09:15:18 2020
-
-@author: gustav
+@author: GM
+@edited: CD
 """
 
 import numpy as np
@@ -36,7 +28,7 @@ class mri_dset(Dataset):
         path = subj['path_registered']
         
         img = self.input_transform(path)
-        return img, subj['age_at_scan'], subj['uid']     
+        return img, subj['age_at_scan'], subj['uid'], subj['guid']     
 
     def __len__(self):
         return len(self.df)

@@ -8,3 +8,4 @@ nipype
 scikit-image
 tensorboard
 sklearn
+monai

@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Residual Attention Network module - feature extractor in AVRA
+Residual Attention Network module
+
+@author: GM
+@edited: CD
 """
 import torch.nn as nn
 
@@ -101,3 +104,24 @@ class ResidualModule3D(nn.Module):
         out += residual
         return out
     
+def reset_weights(m):
+  '''
+    Try resetting model weights to avoid
+    weight leakage.
+  '''
+  for features in m.children():
+   if hasattr(features, 'reset_parameters'):
+    #print(f'Reset trainable parameters of features layer = {features}')
+    features.reset_parameters()
+  for l in m.children():
+   if hasattr(l, 'reset_parameters'):
+    #print(f'Reset trainable parameters of l layer = {l}')
+    l.reset_parameters()
+  for fc1 in m.children():
+   if hasattr(fc1, 'reset_parameters'):
+    #print(f'Reset trainable parameters of fc1 layer = {fc1}')
+    fc1.reset_parameters()
+  for downsample in m.children():
+   if hasattr(downsample, 'reset_parameters'):
+    #print(f'Reset trainable parameters of downsample layer = {downsample}')
+    downsample.reset_parameters()

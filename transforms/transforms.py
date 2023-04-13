@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-@author: gustav
-@edited: caroline
+
+@author: GM
+@edited: CD
 """
 from __future__ import print_function, division
 import nibabel
