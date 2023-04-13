@@ -136,7 +136,7 @@ conda activate py2
 ```
 and the run `python2.7 fslinstaller.py`.
 
-- Please report any problems with running the tool on [https://bitbucket.org/ericwestman/brainage-prediction-mri/](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/issues)
+- Please report any problems with running the tool [here](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/issues)
 
 
 ## Citation
@@ -150,7 +150,7 @@ If you use this tool in your research, in its release-v0.01 (hold-out), please c
 
 ## License
 
-The code in this project is licensed under the MIT License - see [LICENSE.md](LICENSE.md) for details.
+The code in this project is licensed under the MIT License - see [License](LICENSE.md) for details.
 
 Please note that this tool relies on third-party software with other licesenses:
 - FSL - see [FSL license](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence) for details.
