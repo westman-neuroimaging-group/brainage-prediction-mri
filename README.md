@@ -1,10 +1,15 @@
 # Predicting the Age of the Brain with Minimally Processed T1-weighted MRI data
-*Current version: 0.01*
+*Current version: 0.02*
 
 *brainage-prediction-mri* is a tool that takes an unprocessed T1-weighted brain MRI(in .nii or .nii.gz format) and automatically predicts the age of the subject. The model was trained on more than 15000 images from healthy individuals.
 
-The methods in this repository is described in:
+The methods used in the releasev0.02 in this repository is described in:
 > TBA
+
+The methods used in the releasev0.01 in this repository is described in:
+>https://www.medrxiv.org/content/10.1101/2022.09.06.22279594v1
+
+
 
 The network architecture is a 3D version of ResNet [He et al. (2017)](https://arxiv.org/abs/1512.03385).
 
@@ -42,6 +47,7 @@ These instructions show you code prerequisites needed to run the the script and 
     - h5py
     - nipype
     - tensorboard
+    - monai
   - [PyTorch 1.2](pytorch.org) or higher.
   - [FSL v6.0](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/)
 
@@ -53,7 +59,7 @@ See below for installation instructions.
 - Open a terminal and cd to the folder where you wish to install the tool and clone repository:
 ``` 
 cd /path/to/your/installation/folder 
-git clone https://carolinedartora@bitbucket.org/ericwestman/brainage-prediction-mri.git
+git clone https://github.com/westman-neuroimaging-group/brainage-prediction-mri.git
 ``` 
 
 or press "Clone or Download" in the top right corner and unzip the repository in your folder of choice.
@@ -70,7 +76,7 @@ pip install -r requirements.txt
 - Install the latest PyTorch version (at time of writing: 1.7.1) by following the instructions [here](https://pytorch.org/). If you want to train your own model you need to download the CUDA version of PyTorch (and have a GPU + CUDA installed).
 
 ### Download model weights
-You can either [train your own model](#train-model) or download our pretrained model weights that we used in our papers. To use our pretrained model weights go to [here](weights)
+You can either [train your own model](#train-model) or download our pretrained model weights that we used in our papers. To use our pretrained model weights go to [release-v0.02](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/releases/tag/Brainage-release-v0.02) or [release-v0.01](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/releases/tag/Brainage-release-v0.01).
 
 ## Usage
 ### Single case
@@ -96,22 +102,27 @@ This will process all .nii or .nii.gz images in the folder /path/to/images/img1.
 
 ```
 awk '(NR == 1) || (FNR > 1)' /path/to/output/folder/*.csv > merged_file.csv
-
 ```
 ## Train model
 If you want to train your own model you need to have a GPU and a GPU version of pytorch installed.
 
-- Prepare a csv file `your_csv_file.csv` that includes full paths to the images (`path`), the chronological age at the time of the scan (`age_at_scan`), a unique ID of each image (`uid`) and if the image belongs to train, dev or test set (`partition`). See `sample_file_for_preprocessing_script.csv` for an example. Please note that these four columns are needed for the training script to work.
+- Prepare a csv file `your_csv_file.csv` that includes full paths to the images (`path`), the chronological age at the time of the scan (`age_at_scan`), a unique ID of each image (`uid`), a unique index for each image (`indx`), to which project/cohort they belong (`Project`), and if the image belongs to train, dev or test set (for hold-out approach) or to the main partition (for cross-validation approach) (`partition`). See `sample_file_for_preprocessing_script.csv` for an example. Please note that these six columns are needed for the training script to work.
 - Run the script `brain_age_trainer_preprocessing.py` with the following flags (may take several hours depending on sample size):
 ``` 
 python brain_age_trainer_preprocessing.py --input-csv your_csv_file.csv --output-csv your_new_csv_file.csv --output-dir /path/to/folder/to/plave/registered/images
 ```
 - The output file `your_new_csv_file.csv` contains the same info as `your_csv_file.csv` but with an added column `path_registered` containing paths to the FSL-registered files in the chosen `output-dir`. 
-- To start training the model, run the following:
+- To start training the model using the **hold-out** approach, run the following:
 ``` 
-python brain_age_trainer.py --input-csv your_new_csv_file.csv --output-dir /path/to/output/folder
+python brain_age_trainer-holdout.py --input-csv your_new_csv_file.csv --output-dir /path/to/output/folder
 ```
 - The path specified in `output-dir` is where a timestamped folder will be created containing the trained weights of the model(s), predictions on the training and development sets (add flag `--evaluate-test-set` if you want to evaluate your test set in the end of the script), and tensorboard files monitoring the training process. (See https://pytorch.org/docs/stable/tensorboard.html for help on tensorboard.)
+
+- To start training the model using the **cross-validation** approach, run the following:
+``` 
+python brain_age_trainer-crossvalidation.py --input-csv your_new_csv_file.csv --output-dir /path/to/output/folder
+```
+- The path specified in `output-dir` is where a timestamped folder will be created containing the trained weights of the model(s), predictions, a file with the data distribution within different cohorts, and tensorboard files monitoring the training process. (See https://pytorch.org/docs/stable/tensorboard.html for help on tensorboard.)
 - To use your models, you can follow the steps in [Usage](#usage) providing the path to your output folder as `--model-dir` instead of the path to the downloaded weights.
 
 ## Troubleshooting
@@ -125,11 +136,17 @@ conda activate py2
 ```
 and the run `python2.7 fslinstaller.py`.
 
-- Please report any problems with running the tool on https://bitbucket.org/ericwestman/brainage-prediction-mri/
+- Please report any problems with running the tool on [https://bitbucket.org/ericwestman/brainage-prediction-mri/](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/issues)
+
 
 ## Citation
-If you use this tool in your research, please cite:
+If you use this tool in your research, in its release-v0.02 (hold-out and cross-validation approaches), please cite:
 > TBA
+
+If you use this tool in your research, in its release-v0.01 (hold-out), please cite:
+
+>Dartora, Caroline, et al. "Predicting the Age of the Brain with Minimally Processed T1-weighted MRI Data." medRxiv (2022): 2022-09. https://www.medrxiv.org/content/10.1101/2022.09.06.22279594v1
+>
 
 ## License
 
@@ -141,4 +158,4 @@ Please note that this tool relies on third-party software with other licesenses:
 - nibabel - see [license](http://nipy.org/nibabel/legal.html) for details.
 
 ## Contact
-caroline.dartora@ki.se
+caroline.dartora@ki.se/eric.westman@ki.se
