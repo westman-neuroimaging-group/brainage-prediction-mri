@@ -1,10 +1,10 @@
 # Predicting the Age of the Brain with Minimally Processed T1-weighted MRI data
-*Current version: 0.02*
+*Current version: 1.0*
 
 *brainage-prediction-mri* is a tool that takes an unprocessed T1-weighted brain MRI(in .nii or .nii.gz format) and automatically predicts the age of the subject. The model was trained on more than 15000 images from healthy individuals.
 
-The methods used in the releasev0.02 in this repository is described in:
-> TBA
+The methods used in the releasev1.0 in this repository is described in:
+> https://www.medrxiv.org/content/10.1101/2022.09.06.22279594v2
 
 The methods used in the releasev0.01 in this repository is described in:
 >https://www.medrxiv.org/content/10.1101/2022.09.06.22279594v1
@@ -76,7 +76,7 @@ pip install -r requirements.txt
 - Install the latest PyTorch version (at time of writing: 1.7.1) by following the instructions [here](https://pytorch.org/). If you want to train your own model you need to download the CUDA version of PyTorch (and have a GPU + CUDA installed).
 
 ### Download model weights
-You can either [train your own model](#train-model) or download our pretrained model weights that we used in our papers. To use our pretrained model weights go to [release-v0.02](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/releases/tag/Brainage-release-v0.02) or [release-v0.01](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/releases/tag/Brainage-release-v0.01).
+You can either [train your own model](#train-model) or download our pretrained model weights that we used in our papers. To use our pretrained model weights go to [release-v1.0](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/releases/tag/Brainage-release-v1.0) or [release-v0.01](https://github.com/westman-neuroimaging-group/brainage-prediction-mri/releases/tag/Brainage-release-v0.01).
 
 ## Usage
 ### Single case
@@ -140,7 +140,7 @@ and the run `python2.7 fslinstaller.py`.
 
 
 ## Citation
-If you use this tool in your research, in its release-v0.02 (hold-out and cross-validation approaches), please cite:
+If you use this tool in your research, in its release-v1.0 (hold-out and cross-validation approaches), please cite:
 > TBA
 
 If you use this tool in your research, in its release-v0.01 (hold-out), please cite:
