@@ -1,4 +1,4 @@
-# Predicting the Age of the Brain with Minimally Processed T1-weighted MRI data
+# A Deep Learning Model for Brain Age Prediction Using Minimally Pre-processed T1w-images as Input
 *Current version: 1.0*
 
 *brainage-prediction-mri* is a tool that takes an unprocessed T1-weighted brain MRI(in .nii or .nii.gz format) and automatically predicts the age of the subject. The model was trained on more than 15000 images from healthy individuals.
@@ -141,7 +141,7 @@ and the run `python2.7 fslinstaller.py`.
 
 ## Citation
 If you use this tool in your research, in its release-v1.0 (hold-out and cross-validation approaches), please cite:
-> TBA
+> Dartora, Caroline, et al. "A Deep Learning Model for Brain Age Prediction Using Minimally Pre-processed T1w-images as Input." medRxiv 2022.09.06.22279594; doi: https://doi.org/10.1101/2022.09.06.22279594
 
 If you use this tool in your research, in its release-v0.01 (hold-out), please cite:
 
