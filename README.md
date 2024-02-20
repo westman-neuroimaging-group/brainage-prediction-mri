@@ -3,12 +3,8 @@
 
 *brainage-prediction-mri* is a tool that takes an unprocessed T1-weighted brain MRI(in .nii or .nii.gz format) and automatically predicts the age of the subject. The model was trained on more than 15000 images from healthy individuals.
 
-The methods used in the releasev1.0 in this repository is described in:
-> https://www.medrxiv.org/content/10.1101/2022.09.06.22279594v2
-
-The methods used in the releasev0.01 in this repository is described in:
->https://www.medrxiv.org/content/10.1101/2022.09.06.22279594v1
-
+The methods used in the release v1.0 in this repository is described in:
+> https://pubmed.ncbi.nlm.nih.gov/38259636/
 
 
 The network architecture is a 3D version of ResNet [He et al. (2017)](https://arxiv.org/abs/1512.03385).
@@ -141,11 +137,7 @@ and the run `python2.7 fslinstaller.py`.
 
 ## Citation
 If you use this tool in your research, in its release-v1.0 (hold-out and cross-validation approaches), please cite:
-> Dartora, Caroline, et al. "A Deep Learning Model for Brain Age Prediction Using Minimally Pre-processed T1w-images as Input." medRxiv 2022.09.06.22279594; doi: https://doi.org/10.1101/2022.09.06.22279594
-
-If you use this tool in your research, in its release-v0.01 (hold-out), please cite:
-
->Dartora, Caroline, et al. "Predicting the Age of the Brain with Minimally Processed T1-weighted MRI Data." medRxiv (2022): 2022-09. https://www.medrxiv.org/content/10.1101/2022.09.06.22279594v1
+> Dartora C, Marseglia A, Mårtensson G, et al. A deep learning model for brain age prediction using minimally preprocessed T1w images as input. Front Aging Neurosci. 2024;15:1303036. Published 2024 Jan 8. doi:10.3389/fnagi.2023.1303036
 >
 
 ## License
